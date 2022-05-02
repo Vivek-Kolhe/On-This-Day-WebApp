@@ -14,8 +14,8 @@ def create_app():
     from .views import views
     app.register_blueprint(views, url_prefix = "/")
 
-    # from .models import BIRTHS
-    # create_db(app)
+    from .models import BIRTHS
+    create_db(app)
     return app
 
 def create_db(app):
