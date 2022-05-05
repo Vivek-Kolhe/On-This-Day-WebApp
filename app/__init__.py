@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
+from app.helpers import utils, api_endpoints
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -14,7 +15,7 @@ def create_app():
     from .views import views
     app.register_blueprint(views, url_prefix = "/")
 
-    from .models import BIRTHS
+    from .models import WikiData
     create_db(app)
     return app
 
