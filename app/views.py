@@ -17,24 +17,9 @@ def births(page = 1):
     page = page
     per_page = 10
     if request.method == "GET":
-        records = WikiData.query.all()
-        current_date = dt.now().strftime("%d-%m")
-        if len(records) == 0 or records[0].date[:5] != current_date:
-            response = utils.get_api_data(utils.generate_endpoint(api_endpoints.ENDPOINTS.births))["births"]
-            data = []
-            for item in response:
-                category = "BIRTHS"
-                page = item["pages"][0]
-                extract = page["extract"]
-                title = page["normalizedtitle"]
-                link = page["content_urls"]["desktop"]["page"]
-                date = current_date + "-" + str(item["year"])
-                data.append(
-                    WikiData(category = category, title = title, extract = extract, link = link, date = date)
-                    )
-            
-            db.session.add_all(data)
-            db.session.commit()
+        data = utils.fetch_data(WikiData)
+        db.session.add_all(data)
+        db.session.commit()
         
         records = WikiData.query.paginate(page, per_page, error_out = False)
         # for item in records:
