@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Births{% endblock %}
+{% block title %}On This Day: {{ category|title }}{% endblock %}
 {% block content %}
 <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
@@ -32,7 +32,7 @@
 <div class="flex flex-col items-center bg-gray-900">
     <div class="inline-flex mt-2 xs:mt-0">
         {% if records.has_prev %}
-            <a href="{{ url_for('views.births', page = records.prev_num) }}" class="inline-flex items-center mt-4">
+            <a href="{{ url_for('views.births', category_ = category, page = records.prev_num) }}" class="inline-flex items-center mt-4">
                 <button class="inline-flex items-center py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
         {% else %}
             <a class="inline-flex items-center mt-4">
@@ -43,7 +43,7 @@
                 </button>
             </a>
         {% if records.has_next %}
-            <a href="{{ url_for('views.births', page = records.next_num) }}" class="inline-flex items-center mt-4">
+            <a href="{{ url_for('views.births', category_ = category, page = records.next_num) }}" class="inline-flex items-center mt-4">
                 <button class="inline-flex items-center py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-r border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
         {% else %}
             <a class="inline-flex items-center mt-4">
