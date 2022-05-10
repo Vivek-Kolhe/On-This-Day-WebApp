@@ -1,6 +1,6 @@
+from os import path
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from os import path
 from app.helpers import utils, api_endpoints
 
 db = SQLAlchemy()
