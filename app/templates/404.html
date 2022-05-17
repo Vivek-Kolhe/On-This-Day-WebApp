@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Page not found!{% endblock %}
+{% block content %}
+<div class="flex items-center justify-center py-9 bg-gray-900">
+    <div class="px-20 py-20">
+        <div class="flex flex-col items-center">
+            <h1 class="font-bold text-gray-400 text-9xl">404</h1>
+            <h6 class="mb-2 text-2xl font-bold text-center text-gray-400 md:text-3xl">
+                <span class="text-red-500">Oops!</span> Page not found
+            </h6>
+            <p class="mb-8 text-center text-gray-400 md:text-lg">
+                The page you are looking for might have been removed, had its name changed or is temporarily unavailable.
+            </p>
+            <a href="/births">
+                <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-gray-400 text-base mt-4 md:mt-0">Go Home</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
