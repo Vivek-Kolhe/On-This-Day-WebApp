@@ -1,4 +1,3 @@
-from distutils.log import error
 from os import path
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
