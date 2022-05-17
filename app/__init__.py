@@ -1,3 +1,4 @@
+from distutils.log import error
 from os import path
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -13,7 +14,9 @@ def create_app():
     db.init_app(app)
 
     from .views import views
+    from .error_handling import error_bp
     app.register_blueprint(views, url_prefix = "/")
+    app.register_blueprint(error_bp, url_prefix = "/")
 
     from .models import WikiData
     create_db(app)
