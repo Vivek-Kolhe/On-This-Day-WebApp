@@ -30,6 +30,6 @@ def births(category_, page = 1):
             db.session.add_all(data)
             db.session.commit()
             
-        records = WikiData.query.filter_by(category = category_.upper()[:-1] if category_ != "selected" else "SELECTED").paginate(page, per_page, True)
+        records = WikiData.query.filter_by(category = category_.upper()[:-1] if category_ != "selected" else "SELECTED").paginate(page = page, per_page = per_page, error_out = True)
         
         return render_template("index.html", category = category_, records = records)
